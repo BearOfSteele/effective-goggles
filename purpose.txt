@@ -1,0 +1,10 @@
+Got the RNG to work at creating random hands in play. It does not work well as it doesn't seem random enough.
+
+to do:
+-function to print rank and suit names instea of number
+-class with menu system for players turn
+-save system
+-money count
+-ai for other players
+/\ .^^.  O   .^.
+\/  \/  O+O   T
