@@ -2,7 +2,7 @@
 #include <limits>
 #include <vector>
 #include <algorithm>
-#include <random>
+//#include <random>
 using namespace std;
 
 // card structure
@@ -14,14 +14,22 @@ struct card {
 // Generate random number.
 int randomNumber (int line, int range, int change) {
     // Seed generator.
-    srand(time(0));
-    return (abs(rand() + line) % range) + change;
+    srand(time(0)*line);
+    return (abs(rand()) % range) + change;
 }
 
 // Shuffle deck.
-void shuffle (int line, vector<card> deck) {
+/*void shuffle (int line, vector<card> deck) {
   auto rng = default_random_engine {randomNumber(line, 5, 1)};
   shuffle(begin(deck), end(deck), rng);
+}*/
+void shuffle (vector<card> deck) {
+  int i;
+  for (i = 0; i < 100; ++i) {
+    int temp1 = randomNumber(__LINE__*i, 52, 0);
+    int temp2 = randomNumber(__LINE__+i, 52, 0);
+    swap(deck.at(temp1), deck.at(temp2));
+  }
 }
 
 // Detects if input is valid integer

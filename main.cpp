@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include "functions.cpp"
-#include "fases.cpp"
+#include "phases.cpp"
 using namespace std;
 
 
@@ -17,7 +18,7 @@ int main() {
     int ai1Money = 20;
     int ai2Money = 20;
     int ai3Money = 20;
-    int pot;
+    int pot = 0;
     int i;
     int j;
 
@@ -27,15 +28,17 @@ int main() {
         }
     }
 
-    for (i = 0; i < 5; ++i){
+    for (i = 0; i < 52; ++i){
         cout << deck.at(i).rank << "-" << deck.at(i).suit << endl;
     }
+    cout << endl;
 
-    shuffle(__LINE__, deck);
+    shuffle(deck);
     
-    for (i = 0; i < 5; ++i){
+    for (i = 0; i < 52; ++i){
         cout << deck.at(i).rank << "-" << deck.at(i).suit << endl;
     }
+    cout << endl;
 
     printMoney (playerMoney, ai1Money, ai2Money, ai3Money, pot);
 

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "functions.cpp"
+//#include "functions.cpp"
 using namespace std;
 
 // Print the amount of money each player has.
