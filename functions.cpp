@@ -11,6 +11,12 @@ struct card {
   int suit;
 };
 
+// card structure
+struct card {
+  int rank;
+  int suit;
+};
+
 // Generate random number.
 int randomNumber (int line, int range, int change) {
     // Seed generator.
@@ -30,6 +36,12 @@ void shuffle (vector<card> deck) {
     int temp2 = randomNumber(__LINE__+i, 52, 0);
     swap(deck.at(temp1), deck.at(temp2));
   }
+}
+
+// Shuffle deck.
+void shuffle (int line, vector<card> deck) {
+  auto rng = default_random_engine {randomNumber(line, 5, 1)};
+  shuffle(begin(deck), end(deck), rng);
 }
 
 // Detects if input is valid integer
