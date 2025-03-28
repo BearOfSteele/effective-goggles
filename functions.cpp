@@ -1,12 +1,27 @@
 #include <iostream>
 #include <limits>
+#include <vector>
+#include <algorithm>
+#include <random>
 using namespace std;
+
+// card structure
+struct card {
+  int rank;
+  int suit;
+};
 
 // Generate random number.
 int randomNumber (int line, int range, int change) {
     // Seed generator.
     srand(time(0));
     return (abs(rand() + line) % range) + change;
+}
+
+// Shuffle deck.
+void shuffle (int line, vector<card> deck) {
+  auto rng = default_random_engine {randomNumber(line, 5, 1)};
+  shuffle(begin(deck), end(deck), rng);
 }
 
 // Detects if input is valid integer
