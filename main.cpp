@@ -1,13 +1,23 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include "functions.cpp"
+#include "fases.cpp"
 using namespace std;
 
 
 
 int main() {
     vector<card> deck;
+    card playerCards[2];
+    card ai1Cards[2];
+    card ai2Cards[2];
+    card ai3Cards[2];
+    card river[5];
+    int playerMoney = 20;
+    int ai1Money = 20;
+    int ai2Money = 20;
+    int ai3Money = 20;
+    int pot;
     int i;
     int j;
 
@@ -26,6 +36,8 @@ int main() {
     for (i = 0; i < 5; ++i){
         cout << deck.at(i).rank << "-" << deck.at(i).suit << endl;
     }
+
+    printMoney (playerMoney, ai1Money, ai2Money, ai3Money, pot);
 
     return 0;
 }
